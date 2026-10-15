@@ -1,0 +1,46 @@
+# LLMcopy 本地 Redis 服务：用于后续 RQ/Celery 任务队列，不向局域网暴露端口。
+services:
+  redis:
+    image: redis:8
+    container_name: llmcopy-redis
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - llmcopy-redis-data:/data
+    command:
+      - sh
+      - -c
+      - exec redis-server --appendonly yes --appendfsync everysec --requirepass "$${REDIS_PASSWORD}"
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a \"$${REDIS_PASSWORD}\" ping | grep PONG"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  task-redis:
+    image: redis:8
+    container_name: llmcopy-task-redis
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:6380:6379"
+    volumes:
+      - llmcopy-task-redis-data:/data
+      - ./task-redis-backups:/backups
+    command:
+      - sh
+      - -c
+      - exec redis-server --appendonly yes --appendfsync everysec --maxmemory-policy noeviction --requirepass "$${TASK_REDIS_PASSWORD}"
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a \"$${TASK_REDIS_PASSWORD}\" ping | grep PONG"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  llmcopy-redis-data:
+  llmcopy-task-redis-data:

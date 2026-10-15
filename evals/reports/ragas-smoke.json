@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-08-10T07:01:08.866078+00:00",
+  "evaluator": {
+    "provider": "aliyun_bailian",
+    "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "model": "deepseek-v4-flash-0731",
+    "embedding_model": "text-embedding-v4"
+  },
+  "dataset": "evals/datasets/p0_baseline.jsonl",
+  "runtime_results": null,
+  "count": 3,
+  "summary": {
+    "overall": {
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0,
+      "faithfulness": 0.6666666666666666,
+      "answer_relevancy": 0.697612988773603,
+      "factual_correctness": 0.7566666666666667
+    },
+    "by_category": {
+      "owner_vehicle": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 0.6666666666666666,
+        "answer_relevancy": 0.697612988773603,
+        "factual_correctness": 0.7566666666666667
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "p0-001",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.6958476600866835,
+        "factual_correctness": 0.8
+      },
+      "errors": {},
+      "expected_strategies": [
+        "relational_db",
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "relational_db",
+        "knowledge_base"
+      ],
+      "runtime_result_used": false
+    },
+    {
+      "id": "p0-002",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.6390962263484194,
+        "factual_correctness": 0.67
+      },
+      "errors": {},
+      "expected_strategies": [
+        "relational_db",
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "relational_db"
+      ],
+      "runtime_result_used": false
+    },
+    {
+      "id": "p0-003",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.7578950798857061,
+        "factual_correctness": 0.8
+      },
+      "errors": {},
+      "expected_strategies": [
+        "relational_db",
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "relational_db",
+        "knowledge_base"
+      ],
+      "runtime_result_used": false
+    }
+  ]
+}

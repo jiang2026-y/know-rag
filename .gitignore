@@ -1,0 +1,44 @@
+# 本文件只列出「不应进入版本库」的内容；所有条目均已在仓库内验证存在或确有必要。
+# 密钥与本地环境：任何真实 Token、密码、连接串都只允许留在本机 .env 中。
+.env
+.env.*
+!.env.example
+!**/.env.example
+*.local.env
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.whl
+
+# Node 与 Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+npm-debug.log*
+
+# 编辑器与操作系统
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 运行期输出与本地备份
+*.log
+logs/
+scripts/backup/
+*.rdb
+*.aof

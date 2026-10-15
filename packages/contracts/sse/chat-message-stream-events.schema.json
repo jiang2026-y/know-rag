@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LLMcopy P0 问答 SSE 事件",
+  "description": "会话回答流允许 progress、query_rewrite、answer_delta、citation、error、done 六种事件。",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "event": { "const": "progress" },
+        "conversation_id": { "type": "string" },
+        "message_id": { "type": "string" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "trace_id": { "type": "string" },
+        "stage": { "type": "string" },
+        "message": { "type": "string" }
+      },
+      "required": ["event", "conversation_id", "message_id", "sequence", "trace_id", "stage", "message"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "event": { "const": "query_rewrite" },
+        "conversation_id": { "type": "string" },
+        "message_id": { "type": "string" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "trace_id": { "type": "string" },
+        "original_query": { "type": "string" },
+        "rewritten_query": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["event", "conversation_id", "message_id", "sequence", "trace_id", "original_query", "rewritten_query", "status"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "event": { "const": "answer_delta" },
+        "conversation_id": { "type": "string" },
+        "message_id": { "type": "string" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "trace_id": { "type": "string" },
+        "delta": { "type": "string" }
+      },
+      "required": ["event", "conversation_id", "message_id", "sequence", "trace_id", "delta"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "event": { "const": "citation" },
+        "conversation_id": { "type": "string" },
+        "message_id": { "type": "string" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "trace_id": { "type": "string" },
+        "citation": {
+          "type": "object",
+          "properties": {
+            "citation_id": { "type": "string" },
+            "source_name": { "type": "string" },
+            "section": { "type": ["string", "null"] },
+            "source_type": { "type": "string" }
+          },
+          "required": ["citation_id", "source_name", "source_type"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["event", "conversation_id", "message_id", "sequence", "trace_id", "citation"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "event": { "const": "error" },
+        "conversation_id": { "type": "string" },
+        "message_id": { "type": "string" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "trace_id": { "type": "string" },
+        "code": { "type": "string" },
+        "message": { "type": "string" }
+      },
+      "required": ["event", "conversation_id", "message_id", "sequence", "trace_id", "code", "message"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "event": { "const": "done" },
+        "conversation_id": { "type": "string" },
+        "message_id": { "type": "string" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "trace_id": { "type": "string" },
+        "status": { "enum": ["completed", "error"] },
+        "answer_message_id": { "type": ["string", "null"] }
+      },
+      "required": ["event", "conversation_id", "message_id", "sequence", "trace_id", "status", "answer_message_id"],
+      "additionalProperties": false
+    }
+  ]
+}

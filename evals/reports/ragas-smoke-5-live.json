@@ -1,0 +1,134 @@
+{
+  "generated_at": "2026-09-13T07:46:59.833837+00:00",
+  "evaluator": {
+    "provider": "aliyun_bailian",
+    "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "model": "deepseek-v4-flash",
+    "embedding_model": "text-embedding-v4"
+  },
+  "dataset": "evals/datasets/p0_baseline.jsonl",
+  "runtime_results": null,
+  "count": 5,
+  "summary": {
+    "overall": {
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0,
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.7640006326756844,
+      "factual_correctness": 0.8280000000000001
+    },
+    "by_category": {
+      "owner_vehicle": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 0.8,
+        "answer_relevancy": 0.7640006326756844,
+        "factual_correctness": 0.8280000000000001
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "p0-001",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8381313464783843,
+        "factual_correctness": 0.8
+      },
+      "errors": {},
+      "expected_strategies": [
+        "relational_db",
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "relational_db",
+        "knowledge_base"
+      ],
+      "runtime_result_used": false
+    },
+    {
+      "id": "p0-002",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.7652191680307429,
+        "factual_correctness": 0.67
+      },
+      "errors": {},
+      "expected_strategies": [
+        "relational_db",
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "relational_db"
+      ],
+      "runtime_result_used": false
+    },
+    {
+      "id": "p0-003",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.6908111370409102,
+        "factual_correctness": 1.0
+      },
+      "errors": {},
+      "expected_strategies": [
+        "relational_db",
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "relational_db",
+        "knowledge_base"
+      ],
+      "runtime_result_used": false
+    },
+    {
+      "id": "p0-004",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.740714018160411,
+        "factual_correctness": 1.0
+      },
+      "errors": {},
+      "expected_strategies": [
+        "relational_db",
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "relational_db"
+      ],
+      "runtime_result_used": false
+    },
+    {
+      "id": "p0-005",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.7851274936679736,
+        "factual_correctness": 0.67
+      },
+      "errors": {},
+      "expected_strategies": [
+        "relational_db",
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "relational_db"
+      ],
+      "runtime_result_used": false
+    }
+  ]
+}

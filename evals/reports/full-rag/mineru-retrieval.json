@@ -1,0 +1,2143 @@
+{
+  "mode": "mock",
+  "count": 30,
+  "summary": {
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "mrr": 1.0,
+    "section_hit": 1.0,
+    "latency_ms": 0.14056666666666665
+  },
+  "results": [
+    {
+      "id": "mineru-001",
+      "top_k": [
+        {
+          "section": "控制中心",
+          "score": 0.9090909090909091,
+          "hit": true,
+          "chunk_id": "mineru-001"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 1.283,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-002",
+      "top_k": [
+        {
+          "section": "3D 桌面",
+          "score": 0.8,
+          "hit": true,
+          "chunk_id": "mineru-002"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.163,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-003",
+      "top_k": [
+        {
+          "section": "导航分屏",
+          "score": 0.9090909090909091,
+          "hit": true,
+          "chunk_id": "mineru-003"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.076,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-004",
+      "top_k": [
+        {
+          "section": "截屏和录屏",
+          "score": 0.7272727272727273,
+          "hit": true,
+          "chunk_id": "mineru-004"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.102,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-005",
+      "top_k": [
+        {
+          "section": "多任务管理",
+          "score": 0.5,
+          "hit": true,
+          "chunk_id": "mineru-005"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.048,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-006",
+      "top_k": [
+        {
+          "section": "主驾自适应调节",
+          "score": 0.8571428571428571,
+          "hit": true,
+          "chunk_id": "mineru-006"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.117,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-007",
+      "top_k": [
+        {
+          "section": "主驾迎宾",
+          "score": 0.8181818181818182,
+          "hit": true,
+          "chunk_id": "mineru-007"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.066,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-008",
+      "top_k": [
+        {
+          "section": "调节前排座椅",
+          "score": 0.5384615384615384,
+          "hit": true,
+          "chunk_id": "mineru-008"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.1,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-009",
+      "top_k": [
+        {
+          "section": "调节第二排座椅",
+          "score": 0.7857142857142857,
+          "hit": true,
+          "chunk_id": "mineru-009"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.111,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-010",
+      "top_k": [
+        {
+          "section": "多坐姿",
+          "score": 0.8,
+          "hit": true,
+          "chunk_id": "mineru-010"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.199,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-011",
+      "top_k": [
+        {
+          "section": "座椅加热",
+          "score": 0.9090909090909091,
+          "hit": true,
+          "chunk_id": "mineru-011"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.103,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-012",
+      "top_k": [
+        {
+          "section": "座椅通风",
+          "score": 0.6363636363636364,
+          "hit": true,
+          "chunk_id": "mineru-012"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.072,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-013",
+      "top_k": [
+        {
+          "section": "座椅按摩",
+          "score": 0.6363636363636364,
+          "hit": true,
+          "chunk_id": "mineru-013"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.078,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-014",
+      "top_k": [
+        {
+          "section": "车辆启动",
+          "score": 0.45454545454545453,
+          "hit": true,
+          "chunk_id": "mineru-014"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.05,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-015",
+      "top_k": [
+        {
+          "section": "车辆下电",
+          "score": 0.7272727272727273,
+          "hit": true,
+          "chunk_id": "mineru-015"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.083,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-016",
+      "top_k": [
+        {
+          "section": "换挡",
+          "score": 0.6666666666666666,
+          "hit": true,
+          "chunk_id": "mineru-016"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.101,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-017",
+      "top_k": [
+        {
+          "section": "制动系统简介",
+          "score": 0.6923076923076923,
+          "hit": true,
+          "chunk_id": "mineru-017"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.076,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-018",
+      "top_k": [
+        {
+          "section": "能量回收制动",
+          "score": 0.7692307692307693,
+          "hit": true,
+          "chunk_id": "mineru-018"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.079,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-019",
+      "top_k": [
+        {
+          "section": "车身稳定性系统",
+          "score": 0.9285714285714286,
+          "hit": true,
+          "chunk_id": "mineru-019"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.191,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-020",
+      "top_k": [
+        {
+          "section": "自动驻车",
+          "score": 0.6363636363636364,
+          "hit": true,
+          "chunk_id": "mineru-020"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.086,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-021",
+      "top_k": [
+        {
+          "section": "安全制动",
+          "score": 0.6363636363636364,
+          "hit": true,
+          "chunk_id": "mineru-021"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.059,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-022",
+      "top_k": [
+        {
+          "section": "应急制动",
+          "score": 0.5454545454545454,
+          "hit": true,
+          "chunk_id": "mineru-022"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.054,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-023",
+      "top_k": [
+        {
+          "section": "电子驻车",
+          "score": 0.8181818181818182,
+          "hit": true,
+          "chunk_id": "mineru-023"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.092,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-024",
+      "top_k": [
+        {
+          "section": "自动驻车",
+          "score": 0.7272727272727273,
+          "hit": true,
+          "chunk_id": "mineru-024"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.134,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-025",
+      "top_k": [
+        {
+          "section": "驾驶模式",
+          "score": 0.8181818181818182,
+          "hit": true,
+          "chunk_id": "mineru-025"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.137,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-026",
+      "top_k": [
+        {
+          "section": "悬架高度",
+          "score": 0.8181818181818182,
+          "hit": true,
+          "chunk_id": "mineru-026"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.151,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-027",
+      "top_k": [
+        {
+          "section": "车辆驱动模式",
+          "score": 0.8461538461538461,
+          "hit": true,
+          "chunk_id": "mineru-027"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.081,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-028",
+      "top_k": [
+        {
+          "section": "路面辅助模式",
+          "score": 0.7692307692307693,
+          "hit": true,
+          "chunk_id": "mineru-028"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.044,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-029",
+      "top_k": [
+        {
+          "section": "晕车舒缓",
+          "score": 0.7272727272727273,
+          "hit": true,
+          "chunk_id": "mineru-029"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.069,
+      "status": "OK"
+    },
+    {
+      "id": "mineru-030",
+      "top_k": [
+        {
+          "section": "行车记录仪",
+          "score": 0.8333333333333334,
+          "hit": true,
+          "chunk_id": "mineru-030"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-0"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-1"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-2"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-3"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-4"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-5"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-6"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-7"
+        },
+        {
+          "section": "other",
+          "score": 0.0,
+          "hit": false,
+          "chunk_id": "noise-8"
+        }
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "section_hit": 1.0,
+      "latency_ms": 0.212,
+      "status": "OK"
+    }
+  ]
+}

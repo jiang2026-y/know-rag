@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "know-rag"
+version = "0.1.0"
+description = "汽车领域受控 RAG 知识问答系统后端（FastAPI + MySQL + Elasticsearch + Neo4j）"
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "alembic>=1.14,<2.0",
+    "argon2-cffi>=25.1,<26.0",
+    "celery>=5.4,<6.0",
+    "fastapi>=0.115,<1.0",
+    "httpx>=0.27,<1.0",
+    "minio>=7.2,<8.0",
+    "neo4j>=5.26,<6.0",
+    "pymysql>=1.1,<2.0",
+    "pydantic-settings>=2.6,<3.0",
+    "pandas>=2.2,<3.0",
+    "tabulate>=0.9,<1.0",
+    "python-multipart>=0.0.12,<1.0",
+    "redis>=5.2,<7.0",
+    "relier>=0.1,<0.2",
+    "sqlalchemy>=2.0,<3.0",
+    "uvicorn[standard]>=0.30,<1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0,<9.0",
+    "pytest-asyncio>=0.24,<1.0",
+]
+eval = [
+    "openai>=1.0,<2.0",
+    "ragas>=0.4.3,<0.5.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+rail_rag = ["modules/qa/prompts/*.txt"]

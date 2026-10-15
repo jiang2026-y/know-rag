@@ -1,0 +1,438 @@
+{
+  "mode": "mock",
+  "count": 12,
+  "metrics": {
+    "overall_accuracy": {
+      "old": 0.9166666666666666,
+      "current": 1.0
+    },
+    "related_accuracy": {
+      "old": 1.0,
+      "current": 1.0
+    },
+    "entity_exact": {
+      "old": 0.75,
+      "current": 0.75
+    },
+    "entity_micro_f1": {
+      "old": 0.7833333333333333,
+      "current": 0.7833333333333333
+    },
+    "improvement": {
+      "overall_accuracy": {
+        "absolute": 0.08333333333333337,
+        "relative_percent": 9.090909090909095
+      },
+      "related_accuracy": {
+        "absolute": 0.0,
+        "relative_percent": 0.0
+      },
+      "entity_exact": {
+        "absolute": 0.0,
+        "relative_percent": 0.0
+      },
+      "entity_micro_f1": {
+        "absolute": 0.0,
+        "relative_percent": 0.0
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "intent-001",
+      "category": "售前咨询与购买",
+      "question": "Model Y续航多少？",
+      "old": {
+        "prediction": {
+          "related": true,
+          "intent": "售前咨询与购买",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.179,
+        "status": "OK"
+      },
+      "current": {
+        "prediction": {
+          "related": true,
+          "intent": "售前咨询与购买",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.012,
+        "status": "OK"
+      }
+    },
+    {
+      "id": "intent-002",
+      "category": "售后维修与保养",
+      "question": "我的车雨刮器坏了，去店里换一个多少钱？",
+      "old": {
+        "prediction": {
+          "related": true,
+          "intent": "售后维修与保养",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.008,
+        "status": "OK"
+      },
+      "current": {
+        "prediction": {
+          "related": true,
+          "intent": "售后维修与保养",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.005,
+        "status": "OK"
+      }
+    },
+    {
+      "id": "intent-003",
+      "category": "车辆使用与技术指导",
+      "question": "中控屏怎么连接手机蓝牙？",
+      "old": {
+        "prediction": {
+          "related": true,
+          "intent": "车辆使用与技术指导",
+          "entities": {
+            "function_name": "中控屏"
+          }
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": false,
+        "entity_f1": 0.0,
+        "latency_ms": 0.009,
+        "status": "OK"
+      },
+      "current": {
+        "prediction": {
+          "related": true,
+          "intent": "车辆使用与技术指导",
+          "entities": {
+            "function_name": "中控屏"
+          }
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": false,
+        "entity_f1": 0.0,
+        "latency_ms": 0.008,
+        "status": "OK"
+      }
+    },
+    {
+      "id": "intent-004",
+      "category": "投诉与维权",
+      "question": "新车刚开一周中控屏就死机，订单号XYZ12345",
+      "old": {
+        "prediction": {
+          "related": true,
+          "intent": "投诉与维权",
+          "entities": {
+            "order_id": "xyz12345",
+            "function_name": "中控屏"
+          }
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": false,
+        "entity_f1": 0.4,
+        "latency_ms": 0.01,
+        "status": "OK"
+      },
+      "current": {
+        "prediction": {
+          "related": true,
+          "intent": "投诉与维权",
+          "entities": {
+            "order_id": "xyz12345",
+            "function_name": "中控屏"
+          }
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": false,
+        "entity_f1": 0.4,
+        "latency_ms": 0.009,
+        "status": "OK"
+      }
+    },
+    {
+      "id": "intent-005",
+      "category": "售前咨询与购买",
+      "question": "我想预约明天下午3点去朝阳店做首保",
+      "old": {
+        "prediction": {
+          "related": true,
+          "intent": "售后维修与保养",
+          "entities": {
+            "dealer": "朝阳店",
+            "appointment_time": "明天下午3点"
+          }
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.007,
+        "status": "OK"
+      },
+      "current": {
+        "prediction": {
+          "related": true,
+          "intent": "售后维修与保养",
+          "entities": {
+            "dealer": "朝阳店",
+            "appointment_time": "明天下午3点"
+          }
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.006,
+        "status": "OK"
+      }
+    },
+    {
+      "id": "intent-006",
+      "category": "闲聊与通用问答",
+      "question": "明天北京天气怎么样？",
+      "old": {
+        "prediction": {
+          "related": false,
+          "intent": "闲聊与通用问答",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.004,
+        "status": "OK"
+      },
+      "current": {
+        "prediction": {
+          "related": false,
+          "intent": "闲聊与通用问答",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.004,
+        "status": "OK"
+      }
+    },
+    {
+      "id": "intent-007",
+      "category": "边界场景",
+      "question": "雨刮器怎么换？",
+      "old": {
+        "prediction": {
+          "related": true,
+          "intent": "售后维修与保养",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": false,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.004,
+        "status": "OK"
+      },
+      "current": {
+        "prediction": {
+          "related": true,
+          "intent": "车辆使用与技术指导",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.009,
+        "status": "OK"
+      }
+    },
+    {
+      "id": "intent-008",
+      "category": "边界场景",
+      "question": "你们店换机油多少钱？我想去店里换",
+      "old": {
+        "prediction": {
+          "related": true,
+          "intent": "售后维修与保养",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.005,
+        "status": "OK"
+      },
+      "current": {
+        "prediction": {
+          "related": true,
+          "intent": "售后维修与保养",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.005,
+        "status": "OK"
+      }
+    },
+    {
+      "id": "intent-009",
+      "category": "实体抽取-车型",
+      "question": "特斯拉Model 3的续航是多少？",
+      "old": {
+        "prediction": {
+          "related": true,
+          "intent": "售前咨询与购买",
+          "entities": {
+            "car_model": "model 3"
+          }
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": false,
+        "entity_f1": 0.0,
+        "latency_ms": 0.008,
+        "status": "OK"
+      },
+      "current": {
+        "prediction": {
+          "related": true,
+          "intent": "售前咨询与购买",
+          "entities": {
+            "car_model": "model 3"
+          }
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": false,
+        "entity_f1": 0.0,
+        "latency_ms": 0.007,
+        "status": "OK"
+      }
+    },
+    {
+      "id": "intent-010",
+      "category": "实体抽取-故障",
+      "question": "发动机有异响是什么原因？",
+      "old": {
+        "prediction": {
+          "related": true,
+          "intent": "车辆使用与技术指导",
+          "entities": {
+            "fault_description": "发动机有异响"
+          }
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.008,
+        "status": "OK"
+      },
+      "current": {
+        "prediction": {
+          "related": true,
+          "intent": "车辆使用与技术指导",
+          "entities": {
+            "fault_description": "发动机有异响"
+          }
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.007,
+        "status": "OK"
+      }
+    },
+    {
+      "id": "intent-011",
+      "category": "其他",
+      "question": "谢谢",
+      "old": {
+        "prediction": {
+          "related": true,
+          "intent": "其他",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.006,
+        "status": "OK"
+      },
+      "current": {
+        "prediction": {
+          "related": true,
+          "intent": "其他",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.006,
+        "status": "OK"
+      }
+    },
+    {
+      "id": "intent-012",
+      "category": "闲聊与通用问答",
+      "question": "你好",
+      "old": {
+        "prediction": {
+          "related": false,
+          "intent": "闲聊与通用问答",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.003,
+        "status": "OK"
+      },
+      "current": {
+        "prediction": {
+          "related": false,
+          "intent": "闲聊与通用问答",
+          "entities": {}
+        },
+        "related_correct": true,
+        "intent_correct": true,
+        "entity_exact": true,
+        "entity_f1": 1.0,
+        "latency_ms": 0.003,
+        "status": "OK"
+      }
+    }
+  ]
+}

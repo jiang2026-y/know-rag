@@ -1,0 +1,22 @@
+# 统一换行符，避免 Windows 与 Linux 之间产生无意义的整文件差异。
+* text=auto eol=lf
+
+# 二进制文件不做文本转换。
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.docx binary
+*.xlsx binary
+*.onnx binary
+*.rar binary
+
+# 明确按文本处理的项目文件。
+*.py text
+*.md text
+*.ts text
+*.tsx text
+*.json text
+*.yml text
+*.yaml text

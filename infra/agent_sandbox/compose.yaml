@@ -1,0 +1,30 @@
+# Python 代码分析沙箱：通过 profile 手动运行，默认不会随基础服务启动。
+# 工作区挂载只能由受控调度器在单次 docker compose run 时注入，禁止配置根目录挂载。
+services:
+  python-sandbox:
+    profiles: ["sandbox"]
+    build:
+      context: ../..
+      dockerfile: infra/agent_sandbox/Dockerfile
+    image: llmcopy-python-sandbox:local
+    restart: "no"
+    user: "10001:10001"
+    read_only: true
+    network_mode: none
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    cpus: 1.0
+    mem_limit: 512m
+    mem_reservation: 256m
+    logging:
+      driver: local
+      options:
+        max-size: "1m"
+        max-file: "1"
+        compress: "false"
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,noexec,size=128m
+    command: ["analyze"]

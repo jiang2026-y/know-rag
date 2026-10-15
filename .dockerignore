@@ -1,0 +1,19 @@
+# Agent 沙箱镜像仅需要安装依赖和运行受限入口的文件。
+# 排除开发缓存、密钥和无关基础设施，避免构建上下文泄露或不可读。
+.pytest_cache/
+.venv/
+.git/
+.env
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# 默认不发送其他目录，仅保留 Dockerfile 构建所需文件。
+*
+!pyproject.toml
+!README.md
+!src/
+!src/**
+!infra/
+!infra/agent_sandbox/
+!infra/agent_sandbox/runner.py

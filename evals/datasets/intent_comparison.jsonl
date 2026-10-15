@@ -1,0 +1,12 @@
+{"id":"intent-001","category":"售前咨询与购买","question":"Model Y续航多少？","expected":{"related":true,"intent":"售前咨询与购买","entities":{}}}
+{"id":"intent-002","category":"售后维修与保养","question":"我的车雨刮器坏了，去店里换一个多少钱？","expected":{"related":true,"intent":"售后维修与保养","entities":{}}}
+{"id":"intent-003","category":"车辆使用与技术指导","question":"中控屏怎么连接手机蓝牙？","expected":{"related":true,"intent":"车辆使用与技术指导","entities":{}}}
+{"id":"intent-004","category":"投诉与维权","question":"新车刚开一周中控屏就死机，订单号XYZ12345","expected":{"related":true,"intent":"投诉与维权","entities":{"order_id":"XYZ12345","function_name":"中控屏","fault_description":"中控屏死机"}}}
+{"id":"intent-005","category":"售前咨询与购买","question":"我想预约明天下午3点去朝阳店做首保","expected":{"related":true,"intent":"售后维修与保养","entities":{"dealer":"朝阳店","appointment_time":"明天下午3点"}}}
+{"id":"intent-006","category":"闲聊与通用问答","question":"明天北京天气怎么样？","expected":{"related":false,"intent":"闲聊与通用问答","entities":{}}}
+{"id":"intent-007","category":"边界场景","question":"雨刮器怎么换？","expected":{"related":true,"intent":"车辆使用与技术指导","entities":{}}}
+{"id":"intent-008","category":"边界场景","question":"你们店换机油多少钱？我想去店里换","expected":{"related":true,"intent":"售后维修与保养","entities":{}}}
+{"id":"intent-009","category":"实体抽取-车型","question":"特斯拉Model 3的续航是多少？","expected":{"related":true,"intent":"售前咨询与购买","entities":{"car_model":"Model 3"}}}
+{"id":"intent-010","category":"实体抽取-故障","question":"发动机有异响是什么原因？","expected":{"related":true,"intent":"车辆使用与技术指导","entities":{"fault_description":"发动机有异响"}}}
+{"id":"intent-011","category":"其他","question":"谢谢","expected":{"related":true,"intent":"其他","entities":{}}}
+{"id":"intent-012","category":"闲聊与通用问答","question":"你好","expected":{"related":false,"intent":"闲聊与通用问答","entities":{}}}

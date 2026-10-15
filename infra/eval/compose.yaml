@@ -1,0 +1,107 @@
+# 评测专用完整 RAG 基础设施：独立网络、端口和数据卷，不与开发环境混用。
+name: llmcopy-eval
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.15.3
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "127.0.0.1:19200:9200"
+    volumes:
+      - eval-elasticsearch-data:/usr/share/elasticsearch/data
+    networks: [eval-net]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9200/_cluster/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: ${EVAL_MYSQL_DATABASE:-know_engine_eval}
+      MYSQL_USER: ${EVAL_MYSQL_USER:-know_engine_eval}
+      MYSQL_PASSWORD: ${EVAL_MYSQL_PASSWORD:-eval_mysql_password}
+      MYSQL_ROOT_PASSWORD: ${EVAL_MYSQL_ROOT_PASSWORD:-eval_root_password}
+    ports:
+      - "127.0.0.1:13306:3306"
+    volumes:
+      - eval-mysql-data:/var/lib/mysql
+    networks: [eval-net]
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u$${MYSQL_USER} -p$${MYSQL_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  minio:
+    image: quay.io/minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${EVAL_MINIO_ROOT_USER:-eval_minio_admin}
+      MINIO_ROOT_PASSWORD: ${EVAL_MINIO_ROOT_PASSWORD:-eval_minio_password}
+    ports:
+      - "127.0.0.1:19000:9000"
+      - "127.0.0.1:19001:9001"
+    volumes:
+      - eval-minio-data:/data
+    networks: [eval-net]
+
+  redis:
+    image: redis:7.4-alpine
+    command: redis-server --appendonly yes --requirepass "$${EVAL_REDIS_PASSWORD}"
+    environment:
+      EVAL_REDIS_PASSWORD: ${EVAL_REDIS_PASSWORD:-eval_redis_password}
+    ports:
+      - "127.0.0.1:16379:6379"
+    volumes:
+      - eval-redis-data:/data
+    networks: [eval-net]
+
+  task-redis:
+    image: redis:7.4-alpine
+    command: redis-server --appendonly yes --appendfsync everysec --maxmemory-policy noeviction --requirepass "$${EVAL_TASK_REDIS_PASSWORD}"
+    environment:
+      EVAL_TASK_REDIS_PASSWORD: ${EVAL_TASK_REDIS_PASSWORD:-eval_task_redis_password}
+    ports:
+      - "127.0.0.1:16380:6379"
+    volumes:
+      - eval-task-redis-data:/data
+    networks: [eval-net]
+
+  neo4j:
+    image: neo4j:5.26-community
+    environment:
+      NEO4J_AUTH: ${EVAL_NEO4J_AUTH:-neo4j/eval_neo4j_password}
+      NEO4J_server_memory_heap_initial__size: 256m
+      NEO4J_server_memory_heap_max__size: 512m
+    ports:
+      - "127.0.0.1:17474:7474"
+      - "127.0.0.1:17687:7687"
+    volumes:
+      - eval-neo4j-data:/data
+      - eval-neo4j-logs:/logs
+    networks: [eval-net]
+
+networks:
+  eval-net:
+    name: llmcopy-eval-net
+
+volumes:
+  eval-elasticsearch-data:
+    name: llmcopy-eval-elasticsearch-data
+  eval-mysql-data:
+    name: llmcopy-eval-mysql-data
+  eval-minio-data:
+    name: llmcopy-eval-minio-data
+  eval-redis-data:
+    name: llmcopy-eval-redis-data
+  eval-task-redis-data:
+    name: llmcopy-eval-task-redis-data
+  eval-neo4j-data:
+    name: llmcopy-eval-neo4j-data
+  eval-neo4j-logs:
+    name: llmcopy-eval-neo4j-logs
