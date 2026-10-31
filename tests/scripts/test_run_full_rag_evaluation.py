@@ -39,7 +39,7 @@ def write_ragas(path: Path, count: int) -> None:
     payload = {
         "count": count,
         "generated_at": "2026-10-17T00:00:00+00:00",
-        "evaluator": {"model": "deepseek-v4-flash-0731"},
+        "evaluator": {"model": "deepseek-v4.1-flash"},
         "summary": {
             "overall": {
                 "context_precision": 0.9,

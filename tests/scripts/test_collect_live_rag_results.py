@@ -278,3 +278,9 @@ def test_load_samples_rejects_rows_without_required_fields(load_script, tmp_path
 
     with pytest.raises(ValueError):
         module.load_samples(path)
+
+
+def test_parser_supports_mineru_dataset_kind(load_script) -> None:
+    """采集命令应提供 MinerU 前置检查的数据类型开关。"""
+    module = load_script("collect_live_rag_results.py")
+    assert "--dataset-kind" in module.main.__code__.co_consts

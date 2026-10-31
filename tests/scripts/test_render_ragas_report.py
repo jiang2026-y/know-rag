@@ -13,7 +13,7 @@ def test_render_report_contains_metrics_categories_and_failures(load_script) -> 
         "dataset": "evals/datasets/p0_baseline.jsonl",
         "runtime_results": "evals/reports/live/runtime-results.jsonl",
         "count": 2,
-        "evaluator": {"model": "deepseek-v4-flash-0731", "embedding_model": "text-embedding-v4"},
+        "evaluator": {"model": "deepseek-v4.1-flash", "embedding_model": "text-embedding-v4"},
         "summary": {
             "overall": {
                 "context_precision": 0.5,

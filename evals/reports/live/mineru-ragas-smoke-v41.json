@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-10-31T10:03:17.508527+00:00",
+  "evaluator": {
+    "provider": "aliyun_bailian",
+    "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "model": "deepseek-v4.1-flash",
+    "embedding_model": "text-embedding-v4"
+  },
+  "dataset": "evals\\datasets\\mineru_ragas.jsonl",
+  "runtime_results": "evals\\reports\\live\\mineru-runtime-results.jsonl",
+  "count": 1,
+  "summary": {
+    "overall": {
+      "context_precision": 0.7499999999625,
+      "context_recall": 1.0,
+      "faithfulness": 0.8787878787878788,
+      "answer_relevancy": 0.9789993643458041,
+      "factual_correctness": 0.57
+    },
+    "by_category": {
+      "mineru_manual": {
+        "context_precision": 0.7499999999625,
+        "context_recall": 1.0,
+        "faithfulness": 0.8787878787878788,
+        "answer_relevancy": 0.9789993643458041,
+        "factual_correctness": 0.57
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "mineru-001",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.7499999999625,
+        "context_recall": 1.0,
+        "faithfulness": 0.8787878787878788,
+        "answer_relevancy": 0.9789993643458041,
+        "factual_correctness": 0.57
+      },
+      "errors": {},
+      "expected_strategies": [
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "knowledge_base"
+      ],
+      "runtime_result_used": true
+    }
+  ]
+}

@@ -188,7 +188,7 @@ async def collect_sample(
 
 
 async def check_prerequisites(
-    settings: Settings, *, customer_id: str
+    settings: Settings, *, customer_id: str, dataset_kind: str = "p0"
 ) -> list[tuple[str, bool, str]]:
     """只读检查数据库、检索服务、重排与模型配置，不调用任何模型。"""
     checks: list[tuple[str, bool, str]] = []
@@ -222,28 +222,51 @@ async def check_prerequisites(
             connect_timeout=settings.mysql_connect_timeout_seconds,
         ) as connection:
             with connection.cursor() as cursor:
-                cursor.execute(
-                    "SELECT COUNT(*) FROM knowledge_document "
-                    "WHERE doc_title LIKE 'P0%' AND status='VECTOR_STORED' AND deleted=0"
-                )
-                document_count = int(cursor.fetchone()[0])
-                cursor.execute("SELECT COUNT(*) FROM knowledge_segment")
-                segment_count = int(cursor.fetchone()[0])
-                cursor.execute(
-                    "SELECT user_id FROM my_car WHERE car_id=%s", (EVAL_CAR_ID,)
-                )
-                row = cursor.fetchone()
-        if document_count < 3:
+                if dataset_kind == "mineru":
+                    cursor.execute(
+                        "SELECT doc_id FROM knowledge_document "
+                        "WHERE doc_title = %s AND status='VECTOR_STORED' AND deleted=0",
+                        ("MinerU评测-汽车产品手册",),
+                    )
+                    mineru_row = cursor.fetchone()
+                    document_count = 1 if mineru_row is not None and mineru_row[0] is not None else 0
+                    if mineru_row is not None:
+                        cursor.execute(
+                            "SELECT COUNT(*) FROM knowledge_segment "
+                            "WHERE document_id = %s AND deleted = 0",
+                            (mineru_row[0],),
+                        )
+                        segment_count = int(cursor.fetchone()[0])
+                    else:
+                        segment_count = 0
+                    row = None
+                else:
+                    cursor.execute("SELECT COUNT(*) FROM knowledge_segment")
+                    segment_count = int(cursor.fetchone()[0])
+                    cursor.execute(
+                        "SELECT COUNT(*) FROM knowledge_document "
+                        "WHERE doc_title LIKE 'P0%' AND status='VECTOR_STORED' AND deleted=0"
+                    )
+                    document_count = int(cursor.fetchone()[0])
+                    cursor.execute(
+                        "SELECT user_id FROM my_car WHERE car_id=%s", (EVAL_CAR_ID,)
+                    )
+                    row = cursor.fetchone()
+        expected_documents = 1 if dataset_kind == "mineru" else 3
+        if document_count < expected_documents:
+            label = "MinerU 文档" if dataset_kind == "mineru" else "P0 文档"
             mysql_ok = False
-            mysql_detail = f"P0 文档仅 {document_count} 篇处于 VECTOR_STORED"
+            mysql_detail = f"{label}仅 {document_count} 篇处于 VECTOR_STORED"
         elif segment_count < 1:
             mysql_ok = False
             mysql_detail = "knowledge_segment 中没有分片"
-        elif row is None or str(row[0]) != str(customer_id):
+        elif dataset_kind != "mineru" and (row is None or str(row[0]) != str(customer_id)):
             mysql_ok = False
             mysql_detail = f"{EVAL_CAR_ID} 未绑定到顾客 {customer_id}"
         else:
-            mysql_detail = f"P0 文档 {document_count} 篇、分片 {segment_count} 条，测试车绑定正确"
+            label = "MinerU 文档" if dataset_kind == "mineru" else "P0 文档"
+            suffix = "，不需要测试车辆" if dataset_kind == "mineru" else "，测试车绑定正确"
+            mysql_detail = f"{label} {document_count} 篇、分片 {segment_count} 条{suffix}"
     except Exception as exc:  # 连接失败时给出可读原因，不中断其余检查
         mysql_ok = False
         mysql_detail = f"{type(exc).__name__}: {exc}"
@@ -292,7 +315,10 @@ async def check_prerequisites(
 
     neo4j_ok = False
     neo4j_detail = ""
-    if not settings.neo4j_enabled:
+    if dataset_kind == "mineru":
+        neo4j_ok = True
+        neo4j_detail = "MinerU 样本只使用 knowledge_base，不需要 Neo4j"
+    elif not settings.neo4j_enabled:
         neo4j_detail = "NEO4J_ENABLED 未开启，图数据库样本会退化为知识库检索"
     else:
         driver = None
@@ -387,8 +413,14 @@ def append_row(path: Path, row: dict[str, Any]) -> None:
 async def run(args: argparse.Namespace) -> int:
     """执行前置检查或逐条采集，返回进程退出码。"""
     settings = get_settings()
+    samples = load_samples(args.dataset)
+    dataset_kind = args.dataset_kind
+    if dataset_kind == "auto":
+        dataset_kind = str(samples[0].get("dataset_kind", "p0")) if samples else "p0"
     if args.dry_run:
-        checks = await check_prerequisites(settings, customer_id=args.customer_id)
+        checks = await check_prerequisites(
+            settings, customer_id=args.customer_id, dataset_kind=dataset_kind
+        )
         for label, ok, detail in checks:
             print(f"{'[OK]' if ok else '[FAIL]'} {label}：{detail}")
         failed = [label for label, ok, _ in checks if not ok]
@@ -398,7 +430,18 @@ async def run(args: argparse.Namespace) -> int:
         print("前置检查全部通过，可以执行真实链路采集。")
         return 0
 
-    samples = load_samples(args.dataset)
+    # MinerU 真实评测必须使用已配置的重排和可用的隔离检索服务，避免误跑成 RRF 回退或空结果。
+    if dataset_kind == "mineru":
+        checks = await check_prerequisites(
+            settings, customer_id=args.customer_id, dataset_kind=dataset_kind
+        )
+        failed = [label for label, ok, _ in checks if not ok]
+        if failed:
+            for label, ok, detail in checks:
+                print(f"{'[OK]' if ok else '[FAIL]'} {label}：{detail}")
+            print(f"MinerU 真实评测未启动，前置检查未通过：{', '.join(failed)}")
+            return 1
+
     if args.limit is not None:
         if args.limit < 1:
             raise ValueError("--limit 必须是正整数")
@@ -496,6 +539,12 @@ def main() -> None:
         default=root / "evals" / "reports" / "live" / "runtime-results.jsonl",
     )
     parser.add_argument("--mode", choices=["baseline", "current"], default="current")
+    parser.add_argument(
+        "--dataset-kind",
+        choices=["auto", "p0", "mineru"],
+        default="auto",
+        help="前置检查的数据类型；auto 根据样本 dataset_kind 推断",
+    )
     parser.add_argument("--limit", type=int, help="仅采集前 N 条样本")
     parser.add_argument("--customer-id", default="1", help="CUSTOMER 样本使用的顾客 ID")
     parser.add_argument("--staff-id", default="EVAL-STAFF", help="STAFF 样本使用的合成工号")

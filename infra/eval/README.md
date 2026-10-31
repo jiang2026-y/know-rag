@@ -29,3 +29,26 @@ docker compose --env-file .env down
 ```
 
 `down` 不会删除数据卷。只有明确执行 `down -v` 才会删除 `llmcopy-eval-*` 评测卷，请确认目标后再操作。
+
+## 连接当前项目评测脚本
+
+启动隔离服务后，当前项目根目录 `.env` 需要临时指向下列宿主端口；不要把评测密码提交到仓库：
+
+```env
+MYSQL_HOST=127.0.0.1
+MYSQL_PORT=13306
+MYSQL_DATABASE=know_engine_eval
+MYSQL_USER=know_engine_eval
+MYSQL_PASSWORD=eval_mysql_password
+ELASTICSEARCH_HOST=http://127.0.0.1:19200
+REDIS_HOST=127.0.0.1
+REDIS_PORT=16379
+REDIS_PASSWORD=eval_redis_password
+NEO4J_URI=bolt://127.0.0.1:17687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=eval_neo4j_password
+NEO4J_ENABLED=true
+```
+
+然后在项目根目录执行 `alembic upgrade head`，并按 `evals/README.md` 导入 MinerU 文档。真实评测还必须配置可用的
+`CHAT_RERANK_BASE_URL` 与 `CHAT_RERANK_API_KEY`；采集器会在调用模型前检查这些条件。

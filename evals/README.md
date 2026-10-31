@@ -22,7 +22,8 @@
 ```env
 EMBEDDING_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 EMBEDDING_API_KEY=现有的百炼_API_Key
-RAGAS_EVALUATOR_MODEL_NAME=deepseek-v4-flash-0731
+RAGAS_EVALUATOR_MODEL_NAME=deepseek-v4.1-flash
+RAGAS_EVALUATOR_MAX_TOKENS=16384
 ```
 
 评测中的 `AnswerRelevancy` 还会调用项目已配置的 `text-embedding-v4`，因此 `.env` 中也必须填写现有的 `EMBEDDING_API_KEY`；评测脚本不会把该密钥写入报告。
@@ -111,6 +112,68 @@ python scripts/run_ragas_baseline.py --runtime-results evals/reports/live/runtim
 ## know-engine 评测迁移
 
 `datasets/intent_comparison.jsonl` 和 `evals/prompts/intent-recognition-old-prompt.txt` 是把早期版本意图提示词的评测思路脱敏转换而来；当前实现使用 Python，不引入其他语言的构建链，也不写入任何密钥。
+
+## 同源 MinerU 文档 RAGAS 评测
+
+`datasets/mineru_ragas.jsonl` 与压缩包中的 `MinerU_markdown_r7-product-manual-for-testset.processed.md` 同源；
+先将 30 条检索样本转换为 RAGAS 契约：
+
+```powershell
+python scripts/convert_mineru_eval_dataset.py
+```
+
+真实链路评测要求 `CHAT_RERANK_BASE_URL`、`CHAT_RERANK_API_KEY`（或可用的重排连接）已配置，且隔离评测服务已经启动。
+导入同源文档时使用独立标题，脚本可重复执行而不会创建同名文档：
+
+```powershell
+python scripts/seed_mineru_evaluation_document.py --apply
+```
+
+先做不调用模型的前置检查，再采集 5 条 smoke：
+
+```powershell
+python scripts/collect_live_rag_results.py `
+  --dataset evals/datasets/mineru_ragas.jsonl `
+  --dataset-kind mineru --limit 5 --dry-run
+python scripts/collect_live_rag_results.py `
+  --dataset evals/datasets/mineru_ragas.jsonl `
+  --dataset-kind mineru --limit 5 `
+  --output evals/reports/live/mineru-runtime-results.jsonl
+```
+
+确认 smoke 的运行结果后再评分：`status=OK`、证据非空且 `metadata.rerank_status=APPLIED` 的样本可以直接进入评分；如果出现 `SKIPPED` 或空证据，必须作为异常样本保留，不能伪装为评测通过。随后运行完整 30 条并评分：
+
+```powershell
+python scripts/collect_live_rag_results.py `
+  --dataset evals/datasets/mineru_ragas.jsonl `
+  --dataset-kind mineru `
+  --output evals/reports/live/mineru-runtime-results.jsonl
+python scripts/run_ragas_baseline.py `
+  --dataset evals/datasets/mineru_ragas.jsonl `
+  --runtime-results evals/reports/live/mineru-runtime-results.jsonl `
+  --mode current --output evals/reports/live/mineru-ragas.json
+python scripts/render_ragas_report.py `
+  --input evals/reports/live/mineru-ragas.json `
+  --output evals/reports/live/mineru-ragas-report.md `
+  --title "MinerU 同源文档 RAGAS 评测报告"
+```
+
+评测脚本只写入 `evals/` 报告和带 `eval-` 前缀的临时会话；报告不包含 API Key。若中途失败，可对采集命令追加 `--resume` 续跑。
+
+### 当前有效的 MinerU 评测产物
+
+当前使用 `deepseek-v4.1-flash` 和 `text-embedding-v4`，真实运行结果来自同一份 30 条采集文件：
+
+| 文件 | 样本 | 状态 | 说明 |
+| --- | ---: | --- | --- |
+| `evals/reports/live/mineru-ragas-summary.json` | 30 | `28 OK / 2 PARTIAL` | 三份有效分段结果的总体汇总 |
+| `evals/reports/live/mineru-ragas-summary-report.md` | 30 | 汇总报告 | 中文总体/逐条/异常报告 |
+| `evals/reports/live/mineru-ragas-smoke-v41.json` | 1 | `OK` | 单条 smoke，五项指标均有分数 |
+| `evals/reports/live/mineru-ragas-10.json` | 10 | `8 OK / 2 PARTIAL` | `mineru-002` 空证据，`mineru-008` 忠实度输出过长 |
+| `evals/reports/live/mineru-ragas-11-20.json` | 10 | `10 OK` | 无指标异常 |
+| `evals/reports/live/mineru-ragas-21-30.json` | 10 | `10 OK` | 无指标异常 |
+
+`mineru-002` 的意图识别将汽车问题判为通用问答，导致无召回；`mineru-008` 的 `faithfulness` 评审输出超过模型输出上限。两类异常都必须在报告中单独说明，不能将缺失分数当作 0 分或补造分数。旧模型、额度错误和未完成运行产生的报告不作为有效结果保留。
 
 运行意图 Prompt 对比（默认仅 mock）：
 

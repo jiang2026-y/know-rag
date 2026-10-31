@@ -124,7 +124,8 @@ class Settings(BaseSettings):
     chat_rerank_document_max_characters: int = Field(default=4000, ge=100, le=16000)
 
     # RAGAS 复用百炼的现有 OpenAI 兼容连接（embedding_base_url 与 embedding_api_key）。
-    ragas_evaluator_model_name: str = "deepseek-v4-flash-0731"
+    ragas_evaluator_model_name: str = "deepseek-v4.1-flash"
+    ragas_evaluator_max_tokens: int = Field(default=16384, ge=256, le=16384)
     ragas_evaluator_connect_timeout_seconds: float = Field(default=10, gt=0)
     ragas_evaluator_response_timeout_seconds: float = Field(default=120, gt=0)
     ragas_evaluator_max_concurrency: int = Field(default=2, ge=1, le=20)

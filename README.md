@@ -25,7 +25,7 @@ FastAPI 后端 + Next.js 前端，覆盖「文档入库 → 人工审核 → 向
 
 ### 解决思路
 
-LLMcopy 把所有数据源都放在服务端可信边界之后，让大模型只看到**已授权、已限量、可追溯**的证据：
+把所有数据源都放在服务端可信边界之后，让大模型只看到**已授权、已限量、可追溯**的证据：
 身份与数据范围由服务端 Session 推导；文档先经 `leader` 审核并确定可见范围，通过后才会向量化进入检索；
 召回结果还要回 MySQL 复核一次；模型只能拿到复核通过的分片，回答必须带引用，引用不到证据时明确说明而不是编造。
 关系库与图库不接受模型生成的 SQL/Cypher，只执行按身份参数化和预登记的查询。
@@ -56,7 +56,7 @@ LLMcopy 把所有数据源都放在服务端可信边界之后，让大模型只
 | 模块 | 能力 | 状态 |
 | --- | --- | --- |
 | 身份与权限 | 顾客/员工登录、服务端 Session、HttpOnly Cookie、Argon2id 密码、员工权限审计与 HR 初始密码 | ✅ 已实现 |
-| 知识入库 | PDF/DOC/DOCX 解析、CSV/Excel 转 Markdown、5 种切片策略、领导审核发布、文档生命周期 | ✅ 已实现 |
+| 知识入库 | PDF/DOC/DOCX 解析转 Markdown、 2种切片策略、领导审核发布、文档生命周期 | ✅ 已实现 |
 | 混合检索 | ES 向量 + 中文全文召回、RRF 融合、MySQL 二次授权、父子块补全、父块三级缓存 | ✅ 已实现 |
 | 智能问答 | 意图识别、查询改写、多源路由与回落、rerank、SSE 六类事件、多轮记忆、引用溯源 | ✅ 已实现 |
 | 会话与反馈 | 赞踩反馈、异步标题生成、会话列表与详情 | ✅ 已实现 |
@@ -71,8 +71,8 @@ LLMcopy 把所有数据源都放在服务端可信边界之后，让大模型只
 
 ### 知识入库
 
-- 上传 `PDF`、`DOC`、`DOCX`（MinerU 解析）与 `CSV`、`XLS`、`XLSX`（转为 Markdown 表格），源文件与产物存入私有 MinIO。
-- 可选切片策略：`TITLE`（默认，按标题层级父子切分）、`SMART`（重叠 10%）、`LENGTH`、`REGEX`、`SEPARATOR`；
+- 上传 `PDF`、`DOC`、`DOCX`（MinerU 解析），源文件与产物存入私有 MinIO。
+- 切片策略：`TITLE`（默认，按标题层级父子切分）、`SMART`（重叠 10%）、`LENGTH`、`REGEX`、`SEPARATOR`；
   参数随文档版本持久化，非法参数直接返回 422 且不落库。
 - 超长章节保留完整父块（`skip_embedding=1`）并生成带重叠的可检索子块（元数据含 `parentChunkId`）。
 - 员工上传后由 `leader` 审核并确定可见范围（`VISITOR`/`STAFF`/`LEADER`），审核通过才向量化：
@@ -119,7 +119,7 @@ LLMcopy 把所有数据源都放在服务端可信边界之后，让大模型只
 | 对象存储 | MinIO（私有对象 + 预签名下载） |
 | 缓存与任务 | Redis 7+（Session、分布式锁、父块正文缓存）、Celery 5.4 + Relier |
 | 模型 | DashScope：`qwen3.5-flash`（意图/改写/路由/标题）、`qwen3.7-plus`（回答）、`qwen3-rerank`（重排）、`text-embedding-v4`（1536 维） |
-| 文档解析 | MinerU Precision Extract API（PDF/Word）、pandas（表格转 Markdown） |
+| 文档解析 | MinerU Precision Extract API（PDF/Word） |
 
 ## 目录结构
 
@@ -184,33 +184,6 @@ npm run dev
 
 浏览器访问 `http://localhost:3000`，前端通过同源 `/backend/*` 代理访问 FastAPI，不持有任何密钥。
 
-### 5. 初始化账号密码
-
-账号由业务侧主数据维护，密码使用 Argon2id 摘要；重置脚本默认只预览，必须显式传入 `--apply` 才会写入
-MySQL 并撤销该账号的全部 Redis Session（密码通过交互式输入，不进入命令行参数与日志）：
-
-```powershell
-python scripts/reset_password.py customer --phone 13800138000 --apply
-python scripts/reset_password.py staff --emp-id EMP-001 --apply
-```
-
-HR 系统创建员工主数据后，可调用 `/internal/v1/hr/staff/{emp_id}/initial-password` 设置一次性初始密码；
-该接口只接受 `.env` 中配置的 `INTERNAL_HR_SERVICE_TOKEN`，且不对外暴露。
-
-## 关键配置
-
-完整清单见 `.env.example`；以下是影响行为的重点项：
-
-| 变量 | 默认值 | 说明 |
-| --- | --- | --- |
-| `EMBEDDING_MODEL_NAME` / `EMBEDDING_DIMENSIONS` | `text-embedding-v4` / `1536` | 更换模型或维度必须重建索引，不得混用 |
-| `ELASTICSEARCH_INDEX` | `know-engine` | 索引名与 metadata 过滤字段必须与分段元数据一致 |
-| `CHAT_RAG_TOP_K` / `CHAT_RAG_VECTOR_TOP_K` / `CHAT_RAG_FULL_TEXT_TOP_K` / `CHAT_RAG_RRF_K` | `5` / `20` / `20` / `60` | 混合召回与融合参数 |
-| `CHAT_HISTORY_MAX_MESSAGES` / `CHAT_HISTORY_MAX_CHARACTERS` | `10` / `4000` | 多轮记忆窗口与预算 |
-| `SEGMENT_CACHE_ENABLED` / `SEGMENT_CACHE_TTL_SECONDS` | `true` / `30` | 父块正文二级缓存；缓存不参与授权判定 |
-| `CHAT_RERANK_BASE_URL` | 空 | 留空时重排整体降级为 RRF 结果 |
-| `TASK_REDIS_URL` | 本机 `6380` | 任务 Redis 必须与认证 Redis 物理隔离 |
-
 ## 主要接口
 
 | 接口 | 方法 | 说明 |
@@ -230,28 +203,19 @@ HR 系统创建员工主数据后，可调用 `/internal/v1/hr/staff/{emp_id}/in
 
 ## 测试与评测
 
-```powershell
-python -m pytest -q                 # 165 项单元测试，全部使用替身，无需中间件
-cd apps/web; npx tsc --noEmit       # 前端类型检查
-```
+RAGAS 真实链路评测使用的 30 条 MinerU 样本。mock 模式只用于检查数据流和报告格式，不能代表真实召回质量。真实评测需要先启动隔离 Docker 服务、导入 MinerU 文档，再采集当前问答链路结果。
 
-RAGAS 真实链路评测（复用百炼连接，先安装可选依赖 `pip install -e ".[eval]"`）。
-注意：`run_rag_offline_eval.py` 的 mock 模式只是把数据集自带的标准答案写进运行结果，
-不能代表真实召回质量；真实评测必须用下面的采集脚本：
 
-```powershell
-python scripts/collect_live_rag_results.py --dry-run      # 检查 ES/Neo4j/重排/API Key，不调用模型
-python scripts/collect_live_rag_results.py --limit 5      # 先跑 5 条 smoke
-python scripts/collect_live_rag_results.py                # 跑满 20 条
+当前有效的分段结果：
 
-python scripts/run_ragas_baseline.py `
-  --runtime-results evals/reports/live/runtime-results.jsonl `
-  --mode current --output evals/reports/live/ragas.json
-python scripts/render_ragas_report.py                     # 生成中文 Markdown 报告
-```
+- `mineru-ragas-summary.json`：30 条总体汇总，28 条 `OK`、2 条 `PARTIAL`；
+- mineru-ragas-10.json：前 10 条，8 条 OK、2 条 PARTIAL；
+- mineru-ragas-11-20.json：10 条全部 OK；
+- mineru-ragas-21-30.json：10 条全部 OK。
 
-评测前置条件、成本参考、`--resume`/`--cleanup` 用法与报告产物见 [evals/README.md](./evals/README.md)；
-当前仓库内的 `evals/reports/full-rag/` 是 5 条小样本 live 试跑，完整 20 条评测需要先启动 ES 与 Neo4j。
+30 条总体均值（按各指标有效分数计算）：context_precision 0.9427、faithfulness 0.9517、answer_relevancy 0.8934、factual_correctness 0.5947。总体汇总报告见 `evals/reports/live/mineru-ragas-summary-report.md`。
+
+前 10 条中的 mineru-002 存在意图误判导致的空召回，mineru-008 的 faithfulness 评审输出过长；这些异常必须单独记录，不能将缺失分数当作 0 分。旧模型、额度错误和未完成运行产物不作为有效结果。详细前置条件、异常说明和报告路径见 evals/README.md。
 
 ## 文档导航
 
@@ -273,13 +237,6 @@ python scripts/render_ragas_report.py                     # 生成中文 Markdow
 
 尚未完成：真实环境端到端联调与生产验收、Agent Runtime 独立落地、`/api/v1` 兼容迁移、
 会话归档与删除、文档版本切换与归档删除、受控 Text2SQL 与车型/订单卡片交互、统一错误模型与可观测性闭环。
-
-## 安全与数据说明
-
-- 真实 Token、密码与连接串只保存在本机 `.env`，仓库只提供占位模板；`.gitignore` 已覆盖 `.env`、`*.env.local` 等文件。
-- `tests/`、`evals/` 与文档中的账号、车辆、订单均为脱敏或测试数据，不包含真实顾客与员工信息。
-- 代码分析沙箱使用独立 Docker 容器，无网络、无宿主目录挂载，仅用于 Python 代码的分析与测试。
-- 本项目不提供生产部署凭证与运维密钥，生产环境需要独立的密钥、索引与数据存储。
 
 ## 许可
 

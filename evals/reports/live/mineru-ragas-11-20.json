@@ -1,0 +1,222 @@
+{
+  "generated_at": "2026-10-31T10:56:23.294393+00:00",
+  "evaluator": {
+    "provider": "aliyun_bailian",
+    "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "model": "deepseek-v4.1-flash",
+    "embedding_model": "text-embedding-v4"
+  },
+  "dataset": "C:\\Users\\Jiang\\AppData\\Local\\Temp\\mineru_ragas_11_20.jsonl",
+  "runtime_results": "evals\\reports\\live\\mineru-runtime-results.jsonl",
+  "count": 10,
+  "summary": {
+    "overall": {
+      "context_precision": 0.9833333332508334,
+      "context_recall": 1.0,
+      "faithfulness": 0.9500787284610814,
+      "answer_relevancy": 0.870828493510507,
+      "factual_correctness": 0.601
+    },
+    "by_category": {
+      "mineru_manual": {
+        "context_precision": 0.9833333332508334,
+        "context_recall": 1.0,
+        "faithfulness": 0.9500787284610814,
+        "answer_relevancy": 0.870828493510507,
+        "factual_correctness": 0.601
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "mineru-011",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 0.9545454545454546,
+        "answer_relevancy": 0.9395161005982259,
+        "factual_correctness": 0.67
+      },
+      "errors": {},
+      "expected_strategies": [
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "knowledge_base"
+      ],
+      "runtime_result_used": true
+    },
+    {
+      "id": "mineru-012",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 0.8888888888888888,
+        "answer_relevancy": 0.9588392963680646,
+        "factual_correctness": 0.62
+      },
+      "errors": {},
+      "expected_strategies": [
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "knowledge_base"
+      ],
+      "runtime_result_used": true
+    },
+    {
+      "id": "mineru-013",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9726036354999064,
+        "factual_correctness": 0.77
+      },
+      "errors": {},
+      "expected_strategies": [
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "knowledge_base"
+      ],
+      "runtime_result_used": true
+    },
+    {
+      "id": "mineru-014",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 0.8823529411764706,
+        "answer_relevancy": 0.7815120081268491,
+        "factual_correctness": 1.0
+      },
+      "errors": {},
+      "expected_strategies": [
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "knowledge_base"
+      ],
+      "runtime_result_used": true
+    },
+    {
+      "id": "mineru-015",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9816681795969,
+        "factual_correctness": 0.67
+      },
+      "errors": {},
+      "expected_strategies": [
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "knowledge_base"
+      ],
+      "runtime_result_used": true
+    },
+    {
+      "id": "mineru-016",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.810706776444939,
+        "factual_correctness": 0.67
+      },
+      "errors": {},
+      "expected_strategies": [
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "knowledge_base"
+      ],
+      "runtime_result_used": true
+    },
+    {
+      "id": "mineru-017",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "faithfulness": 0.8,
+        "answer_relevancy": 0.854276961649712,
+        "factual_correctness": 0.67
+      },
+      "errors": {},
+      "expected_strategies": [
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "knowledge_base"
+      ],
+      "runtime_result_used": true
+    },
+    {
+      "id": "mineru-018",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.8333333332916666,
+        "context_recall": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8958496574406283,
+        "factual_correctness": 0.44
+      },
+      "errors": {},
+      "expected_strategies": [
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "knowledge_base"
+      ],
+      "runtime_result_used": true
+    },
+    {
+      "id": "mineru-019",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.9999999999666667,
+        "context_recall": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.7024122836193126,
+        "factual_correctness": 0.5
+      },
+      "errors": {},
+      "expected_strategies": [
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "knowledge_base"
+      ],
+      "runtime_result_used": true
+    },
+    {
+      "id": "mineru-020",
+      "status": "OK",
+      "scores": {
+        "context_precision": 0.99999999995,
+        "context_recall": 1.0,
+        "faithfulness": 0.975,
+        "answer_relevancy": 0.8109000357605319,
+        "factual_correctness": 0.0
+      },
+      "errors": {},
+      "expected_strategies": [
+        "knowledge_base"
+      ],
+      "expected_source_types": [
+        "knowledge_base"
+      ],
+      "runtime_result_used": true
+    }
+  ]
+}

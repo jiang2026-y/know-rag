@@ -117,7 +117,11 @@ def build_metrics(settings: Settings) -> dict[str, Any]:
         base_url=str(settings.embedding_base_url).rstrip("/"),
         timeout=settings.embedding_response_timeout_seconds,
     )
-    evaluator_llm = llm_factory(settings.ragas_evaluator_model_name, client=evaluator_client)
+    evaluator_llm = llm_factory(
+        settings.ragas_evaluator_model_name,
+        client=evaluator_client,
+        max_tokens=settings.ragas_evaluator_max_tokens,
+    )
     evaluator_embeddings = embedding_factory(
         "openai", model=settings.embedding_model_name, client=embedding_client
     )
